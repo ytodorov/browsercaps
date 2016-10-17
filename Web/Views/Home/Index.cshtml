@@ -13,11 +13,11 @@
         columns.Bound(p => p.Returns);
     })
     .ToolBar(t => {
-        t.Excel();
-        t.Pdf();
+        t.Excel().Text(string.Empty);
+        t.Pdf().Text(string.Empty);
     })
     .Sortable()
-    .Scrollable(s => s.Virtual(false))
+    //.Scrollable(s => s.Virtual(false))
     .Filterable()
     .Pageable(p => p.PageSizes(new int[] { 50,100,500 }))
     .Groupable(g => g.Enabled(false))
