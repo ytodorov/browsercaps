@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your browser in details</title>
+    @*<link href="~/Content/font-awesome.min.css" rel="stylesheet" />*@
+    <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE" crossorigin="anonymous">
+   
+    @*<link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE" crossorigin="anonymous">*@
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2016.3.914/styles/kendo.common-material.min.css">
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2016.3.914/styles/kendo.material.min.css">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+
+<body> 
+    <div class="splash">
+        <div class="color-line"></div>
+        <div class="splash-title">
+            <h1> Your browser is being evaluated ... </h1>
+            <p>All information about your browser in details</p>
+            <i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <b>Browser Request in Details</b>
+        </footer>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script>
+        $(window).bind("load", function () {
+            // Remove splash screen after load
+            $('.splash').css('display', 'none')
+        });
+    </script>
+    <script src="http://kendo.cdn.telerik.com/2016.3.914/js/jszip.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2016.3.914/js/kendo.all.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2016.3.914/js/kendo.aspnetmvc.min.js"></script>
+    @Html.Kendo().DeferredScripts()
+</body>
+</html>

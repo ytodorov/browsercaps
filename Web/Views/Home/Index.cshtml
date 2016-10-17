@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+@(Html.Kendo().Grid<RequestDataViewModel>()
+    .Name("grid")
+    .Columns(columns =>
+    {
+        columns.Bound(p => p.Name);
+        columns.Bound(p => p.Value);
+        columns.Bound(p => p.Summary);
+        columns.Bound(p => p.Returns);
+    })
+    .ToolBar(t => {
+        t.Excel();
+        t.Pdf();        
+        })
+    .Sortable()
+    .Filterable()
+    .Groupable(g => g.Enabled(false))
+    .Excel(e => e.AllPages(true))
+    .Pdf(p => p.AllPages())
+    .Selectable()
+    .Reorderable(r => r.Columns(true))
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .ServerOperation(false)
+        .Read(read => read.Action("Read", "Home"))
+        .Group(g => g.Add(c => c.Category))
+        .Sort(s => s.Add(c => c.Name).Ascending())
+     )
+
+     .Deferred()
+)
