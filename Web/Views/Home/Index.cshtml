@@ -18,6 +18,8 @@
         })
     .Sortable()
     .Filterable()
+    .Scrollable(s => s.Height(1000))
+    .Pageable()
     .Groupable(g => g.Enabled(false))
     .Excel(e => e.AllPages(true))
     .Pdf(p => p.AllPages())
@@ -29,6 +31,7 @@
         .Read(read => read.Action("Read", "Home"))
         .Group(g => g.Add(c => c.Category))
         .Sort(s => s.Add(c => c.Name).Ascending())
+        .PageSize(1000)
      )
 
      .Deferred()

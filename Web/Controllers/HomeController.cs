@@ -158,7 +158,7 @@ namespace Web.Controllers
 
             foreach (string item in Request.ServerVariables)
             {
-                list.Add(new RequestDataViewModel() { Name= "ServerVariables." + item, Value = Request.ServerVariables[item],
+                list.Add(new RequestDataViewModel() { Name= "ServerVariables." + item, Value = Request.ServerVariables[item].TrimToLength(),
                 Category = "ServerVariables"
                 });
             }
